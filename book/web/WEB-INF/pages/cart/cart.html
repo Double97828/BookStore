@@ -66,7 +66,7 @@
           <div class="footer-right">
             <div>total<span th:text="${session.user.getCart().getTotalItem()}"></span> items</div>
             <div class="total-price">total price: <span th:text="${session.user.getCart().getTotalPrice()}"></span>CAD</div>
-            <a class="pay" th:href="checkout.html">Check Out</a>
+            <a class="pay" th:href="@{/order.do(operate='checkOut')}">Check Out</a>
           </div>
         </div>
       </div>

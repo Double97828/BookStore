@@ -60,5 +60,12 @@ public class CartItemServiceImpl implements CartItemService {
         return cart;
     }
 
-
+    @Override
+    public void cleanCart(User user) {
+        Map<Integer,CartItem> cartItemMap = user.getCart().getCartItemMap();
+        for (CartItem cartItem:cartItemMap.values()){
+            cartItemDAO.deleteCartItem(cartItem);
+        }
+        cartItemMap.clear();
+    }
 }

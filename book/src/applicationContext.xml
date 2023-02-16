@@ -13,6 +13,8 @@
     <bean id="userDAO" class="com.app.book.DAO.Impl.UserDAOImpl"></bean>
     <bean id="bookDAO" class="com.app.book.DAO.Impl.BookDAOImpl"></bean>
     <bean id="cartItemDAO" class="com.app.book.DAO.Impl.CartItemDAOImpl"></bean>
+    <bean id="orderItemDAO" class="com.app.book.DAO.Impl.OrderItemDAOImpl"></bean>
+    <bean id="orderDAO" class="com.app.book.DAO.Impl.OrderDAOImpl"></bean>
 
     <bean id="userService" class="com.app.book.service.Impl.UserServiceImpl">
         <property name="userDAO" ref="userDAO"></property>
@@ -26,6 +28,12 @@
         <property name="bookService" ref="bookService"></property>
     </bean>
 
+    <bean id="orderService" class="com.app.book.service.Impl.OrderServiceImpl">
+        <property name ="orderDAO" ref="orderDAO"></property>
+        <property name = "orderItemDAO" ref="orderItemDAO"></property>
+        <property name = "cartItemService" ref="cartItemService"></property>
+    </bean>
+
     <bean id="user" class="com.app.book.controller.UserController">
         <property name = "userService" ref = "userService" ></property>
         <property name = "cartItemService" ref="cartItemService"></property>
@@ -37,6 +45,9 @@
     <bean id="page" class="com.at.myssm.myspringmvc.PageController"></bean>
     <bean id="cart" class="com.app.book.controller.CartController">
         <property name="cartItemService" ref="cartItemService"></property>
+    </bean>
+    <bean id="order" class="com.app.book.controller.OrderController">
+        <property name ="orderService" ref="orderService"></property>
     </bean>
 
 

@@ -8,7 +8,7 @@ public class OrderBean {
     private String orderNo;
 
     private Date orderDate;
-    private Integer orderUser;
+    private User orderUser;
 
     private Double orderMoney;
 
@@ -17,6 +17,14 @@ public class OrderBean {
     private List<OrderItem> orderList;
 
     public OrderBean() {
+    }
+
+    public OrderBean(String orderNo, Date orderDate, User orderUser, Double orderMoney, Integer orderStatus) {
+        this.orderNo = orderNo;
+        this.orderDate = orderDate;
+        this.orderUser = orderUser;
+        this.orderMoney = orderMoney;
+        this.orderStatus = orderStatus;
     }
 
     public OrderBean(Integer id) {
@@ -35,7 +43,7 @@ public class OrderBean {
         this.orderDate = orderDate;
     }
 
-    public void setOrderUser(Integer orderUser) {
+    public void setOrderUser(User orderUser) {
         this.orderUser = orderUser;
     }
 
@@ -63,7 +71,7 @@ public class OrderBean {
         return orderDate;
     }
 
-    public Integer getOrderUser() {
+    public User getOrderUser() {
         return orderUser;
     }
 

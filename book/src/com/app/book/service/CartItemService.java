@@ -13,5 +13,7 @@ public interface CartItemService {
 
     public Cart getCartByUser(User user);
 
+    public void cleanCart(User user);
+
 
 }

@@ -9,6 +9,12 @@ public class OrderItem {
     public OrderItem() {
     }
 
+    public OrderItem(Book book, Integer buyCount, OrderBean orderBean) {
+        this.book = book;
+        this.buyCount = buyCount;
+        this.orderBean = orderBean;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
