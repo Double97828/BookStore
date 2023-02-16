@@ -10,15 +10,33 @@
         ]>
 
 <beans>
+    <bean id="userDAO" class="com.app.book.DAO.Impl.UserDAOImpl"></bean>
+    <bean id="bookDAO" class="com.app.book.DAO.Impl.BookDAOImpl"></bean>
+    <bean id="cartItemDAO" class="com.app.book.DAO.Impl.CartItemDAOImpl"></bean>
 
-    <bean id="page" class="com.at.myssm.myspringmvc.PageController"></bean>
     <bean id="userService" class="com.app.book.service.Impl.UserServiceImpl">
         <property name="userDAO" ref="userDAO"></property>
     </bean>
-    <bean id="userDAO" class="com.app.book.DAO.Impl.UserDAOImpl"></bean>
+    <bean id="bookService" class="com.app.book.service.Impl.BookServiceImpl">
+        <property name="bookDAO" ref="bookDAO"></property>
+    </bean>
 
-    <bean id="user" class="com.app.book.controller.UserControllers">
+    <bean id="cartItemService" class="com.app.book.service.Impl.CartItemServiceImpl">
+        <property name="cartItemDAO" ref="cartItemDAO"></property>
+        <property name="bookService" ref="bookService"></property>
+    </bean>
+
+    <bean id="user" class="com.app.book.controller.UserController">
         <property name = "userService" ref = "userService" ></property>
+        <property name = "cartItemService" ref="cartItemService"></property>
+    </bean>
+
+    <bean id="book" class="com.app.book.controller.BookController">
+        <property name="bookService" ref="bookService"></property>
+    </bean>
+    <bean id="page" class="com.at.myssm.myspringmvc.PageController"></bean>
+    <bean id="cart" class="com.app.book.controller.CartController">
+        <property name="cartItemService" ref="cartItemService"></property>
     </bean>
 
 

@@ -10,7 +10,22 @@ public class User {
     private String email;
     private Integer role;
 
+    private Cart cart;
+
+    public Cart getCart() {
+        return cart;
+    }
+
     public User(){}
+
+    public User(Integer id) {
+        this.id = id;
+    }
+
+    public User(String uname) {
+        this.uname = uname;
+    }
+
 
     public void setUname(String uname) {
         this.uname = uname;
@@ -50,5 +65,9 @@ public class User {
 
     public Integer getRole() {
         return role;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 }

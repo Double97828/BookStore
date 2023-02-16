@@ -4,9 +4,9 @@ public class Book {
     private Integer id;
     private String bookImg;
     private String bookName;
-    private Integer price;
+    private Double price;
 
-    private User author;
+    private String author;
 
     private Integer saleCount;
 
@@ -37,11 +37,11 @@ public class Book {
         this.bookName = bookName;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
@@ -65,11 +65,11 @@ public class Book {
         return bookName;
     }
 
-    public Integer getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public User getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
