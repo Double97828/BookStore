@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 public class CartController {
     private CartItemService cartItemService;
 
-    public String getCart(HttpSession session){
+    public String showCart(HttpSession session){
         User user = (User) session.getAttribute("user");
         if(user != null){
             Cart cart = cartItemService.getCartByUser(user);
@@ -28,7 +28,14 @@ public class CartController {
             cartItemService.addOrSetCartItem(cartItem, cart);
 
         }
-        return "redirect:cart.do?operate=getCart";
+        return "redirect:cart.do?operate=showCart";
+    }
+
+    public String editCartCount(Integer topicId, Integer buyCount){
+        cartItemService.setCartItem(new CartItem(topicId, buyCount));
+
+
+        return "redirect:cart.do?operate=showCart";
     }
 
 }

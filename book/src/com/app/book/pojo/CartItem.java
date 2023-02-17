@@ -1,12 +1,21 @@
 package com.app.book.pojo;
 
+import java.math.BigDecimal;
+
 public class CartItem {
     private Integer id;
     private  Book book;
     private  Integer buyCount;
     private User userBean;
 
+    private Double itemTotal;
+
     public CartItem() {
+    }
+
+    public CartItem(Integer id, Integer buyCount) {
+        this.id = id;
+        this.buyCount = buyCount;
     }
 
     public CartItem(Book book, Integer buyCount, User userBean) {
@@ -50,4 +59,13 @@ public class CartItem {
     public User getUserBean() {
         return userBean;
     }
+
+    public Double getItemTotal() {
+        BigDecimal itemPrice = new BigDecimal("" + getBook().getPrice());
+        BigDecimal itemCount = new BigDecimal("" + getBuyCount());
+        BigDecimal result = itemPrice.multiply(itemCount);
+        itemTotal = result.doubleValue();
+        return itemTotal;
+    }
+
 }

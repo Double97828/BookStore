@@ -1,5 +1,6 @@
 package com.app.book.pojo;
 
+import java.util.List;
 import java.util.SplittableRandom;
 
 public class User {
@@ -11,6 +12,8 @@ public class User {
     private Integer role;
 
     private Cart cart;
+
+    private List<OrderBean> orderBeanList;
 
     public Cart getCart() {
         return cart;
@@ -69,5 +72,13 @@ public class User {
 
     public void setCart(Cart cart) {
         this.cart = cart;
+    }
+
+    public List<OrderBean> getOrderBeanList() {
+        return orderBeanList;
+    }
+
+    public void setOrderBeanList(List<OrderBean> orderBeanList) {
+        this.orderBeanList = orderBeanList;
     }
 }

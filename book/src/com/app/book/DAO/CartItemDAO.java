@@ -13,4 +13,5 @@ public interface CartItemDAO {
     public List<CartItem> getCartItemList(User user);
 
     public void deleteCartItem(CartItem cartItem);
+
 }

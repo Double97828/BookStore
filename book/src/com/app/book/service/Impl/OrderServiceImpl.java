@@ -32,4 +32,15 @@ public class OrderServiceImpl implements OrderService {
         orderBean.setOrderList(orderItemList);
         cartItemService.cleanCart(user);
     }
+
+    @Override
+    public List<OrderBean> getOrderList(User user) {
+        List<OrderBean> orderBeanList=orderDAO.getOrderList(user);
+        for (OrderBean orderBean: orderBeanList){
+            Integer totalCount = orderDAO.getTotalCount(orderBean);
+            orderBean.setTotalCount(totalCount);
+        }
+        return orderBeanList;
+    }
+
 }

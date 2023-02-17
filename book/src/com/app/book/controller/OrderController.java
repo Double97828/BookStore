@@ -8,10 +8,23 @@ import javax.servlet.http.HttpSession;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 public class OrderController {
     private OrderService orderService;
+
+    public String showOrder(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        if(user != null){
+            List<OrderBean> orderBeanList = orderService.getOrderList(user);
+            user.setOrderBeanList(orderBeanList);
+            session.setAttribute("user", user);
+        }
+
+
+        return "order/order";
+    }
 
     public String checkOut(HttpSession session){
         User user = (User) session.getAttribute("user");
@@ -26,9 +39,10 @@ public class OrderController {
             OrderBean orderBean = new OrderBean(orderNo, date, user, user.getCart().getTotalPrice(), 0);
 
             orderService.addOrder(orderBean);
+            session.setAttribute("order", orderBean);
         }
 
 
-        return "index";
+        return "cart/checkout";
     }
 }

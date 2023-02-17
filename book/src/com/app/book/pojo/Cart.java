@@ -1,5 +1,6 @@
 package com.app.book.pojo;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 public class Cart {
@@ -18,13 +19,16 @@ public class Cart {
 
     public Double getTotalPrice() {
         totalPrice =0.0;
+        BigDecimal result = new BigDecimal("0.0");
+
         if (cartItemMap != null) {
-            for (Map.Entry<Integer, CartItem> cartItemEntry : cartItemMap.entrySet()) {
-                Double price = cartItemEntry.getValue().getBook().getPrice();
-                Integer count = cartItemEntry.getValue().getBuyCount();
-                totalPrice += (price * count);
+            for (CartItem cartItem : cartItemMap.values()) {
+                BigDecimal price = new BigDecimal(""+cartItem.getBook().getPrice());
+                BigDecimal count = new BigDecimal("" + cartItem.getBuyCount());
+                result = result.add(price.multiply(count));
             }
         }
+        totalPrice = result.doubleValue();
         return totalPrice;
     }
 

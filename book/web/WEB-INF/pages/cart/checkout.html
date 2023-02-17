@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>结算页面</title>
-<link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
-	<link rel="stylesheet" href="../../static/css/minireset.css" />
-	<link rel="stylesheet" href="../../static/css/common.css" />
-	<link rel="stylesheet" href="../../static/css/cart.css" />
+<title>check out page</title>
+<link type="text/css" rel="stylesheet" th:href="@{/static/css/style.css}" >
+	<link rel="stylesheet" th:href="@{/static/css/minireset.css}" />
+	<link rel="stylesheet" th:href="@{/static/css/common.css}" />
+	<link rel="stylesheet" th:href="@{/static/css/cart.css}" />
 <style type="text/css">
 	h1 {
 		text-align: center;
@@ -20,7 +20,7 @@
 </style>
 </head>
 <body>
-	
+
 <!--	<div id="header">-->
 <!--			<img class="logo_img" alt="" src="../../static/img/logo.gif" >-->
 <!--			<span class="wel_word">结算</span>-->
@@ -34,29 +34,40 @@
 		<div class="header">
 			<div class="w">
 				<div class="header-left">
-					<a href="../index.html">
-						<img src="../../static/img/logo.gif" alt=""
-						/></a>
-					<span>我的购物车</span>
+					<a th:href="@{page.do(operate='page',page='index')}"> <img th:src="@{/static/img/logo.gif}" alt=""/></a>
+					<span>My Cart</span>
 				</div>
-				<div class="header-right">
-					<h3>欢迎<span>张总</span>光临尚硅谷书城</h3>
-					<div class="order"><a href="../order/order.html">我的订单</a></div>
-					<div class="destory"><a href="../index.html">注销</a></div>
+				<div class="header-right" >
+					<h3 th:if="${session.user != null}">Welcom <span th:text="${session.user.getUname()}"> </span> </h3>
+					<h3 th:unless="${session.user != null}">Welcom to Double Book Shop</h3>
+					<div class="order"><a th:href="@{/order/order.html}">MyOrder</a></div>
+					<div class="destory"><a th:href="@{page.do(operate='page',page='index')}">LogOut</a></div>
 					<div class="gohome">
-						<a href="../index.html">返回</a>
+						<a th:href="@{/page.do(operate='page',page='index')}">return</a>
 					</div>
 				</div>
 			</div>
 		</div>
+
+<!--<div th:if="${session.user == null}" class="topbar-right">-->
+<!--	<a href="user/login.html" class="login">Login</a>-->
+<!--	<a href="user/regist.html" class="register">Register</a>-->
+<!--	<a href="cart/cart.html" class="cart iconfont icon-gouwuche">cart-->
+<!--		<div class="cart-num">0</div>-->
+<!--	</a>-->
+<!--	<a href="manager/book_manager.html" class="admin">Backstage</a>-->
+<!--</div>-->
+
+
 	
 	<div id="main">
-		<h1>你的订单已结算，订单号为:<span class="oid">546845626455846</span></h1>
+		<h1>We have received your order, and your order number is:</h1>
+		<span class="oid" th:text="${session.order.getOrderNo()}"> 123</span>
 	</div>
 
 	<div id="bottom">
 		<span>
-			尚硅谷书城.Copyright &copy;2015
+			Double Book Shop.Copyright &copy;2023
 		</span>
 	</div>
 </body>

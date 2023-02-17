@@ -21,7 +21,7 @@
             <i class="iconfont icon-ai-arrow-down"></i>
           </div>
           <div th:if="${session.user == null}" class="topbar-right">
-            <a href="user/login.html" class="login">Login</a>
+            <a th:href="@{page.do(operate='page', page='/user/login')}" class="login">Login</a>
             <a href="user/regist.html" class="register">Register</a>
             <a href="cart/cart.html" class="cart iconfont icon-gouwuche">cart
               <div class="cart-num">0</div>
@@ -31,7 +31,7 @@
           <div th:unless="${session.user == null}"   class="topbar-right">
             <span>welcome  <b th:text="${session.user.getUname()}"></b></span>
             <a href="#" class="register">Logout</a>
-            <a href="pages/cart/cart.jsp" class="cart iconfont icon-gouwuche">cart
+            <a th:href="@{cart.do(operate='showCart')}" class="cart iconfont icon-gouwuche">cart
               <div class="cart-num" th:text="${session.user.getCart().getTotalCount()}">3</div>
             </a>
             <a href="./pages/manager/book_manager.html" class="admin">Backstage</a>
