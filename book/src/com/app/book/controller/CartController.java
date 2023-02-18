@@ -19,6 +19,7 @@ public class CartController {
             session.setAttribute("user", user);
         }
         return "/cart/cart";
+
     }
     public String addCart(Integer bookId, HttpSession session){
         User user = (User) session.getAttribute("user");
