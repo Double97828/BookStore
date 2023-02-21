@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-@WebFilter(urlPatterns = {"*.do","*.html"}, initParams = {@WebInitParam(name ="whiteList", value = "/book/page.do?operate=page&page=/user/login,/book/user.do?null")})
+//@WebFilter(urlPatterns = {"*.do","*.html"}, initParams = {@WebInitParam(name ="whiteList", value = "/book/page.do?operate=page&page=/user/login,/book/user.do?null,/book/page.do?operte=page&page=user/regist")})
 public class SessionFilters implements Filter {
 
     private List<String> whiteList;

@@ -8,7 +8,7 @@
   <body>
     <div id="login_header">
       <a href="../index.html">
-        <img class="logo_img" alt="" th:href="@{/static/img/logo.gif}" />
+        <img class="logo_img" alt="" th:href="@{/img/logo.jpg}" />
       </a>
     </div>
 
@@ -43,7 +43,7 @@
                 <input type="submit" value="Login" id="sub_btn" />
               </form>
               <div class="tit">
-                <a href="regist.html">Register</a>
+                <a th:href="@{page.do(operate='page', page='user/regist')}">Register</a>
               </div>
             </div>
           </div>
