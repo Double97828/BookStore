@@ -24,4 +24,16 @@ public class UserController {
         return "user/login";
     }
 
+    public String register(String uname, String pwd, String captcha, String email, HttpSession session){
+        String verifyCode = (String) session.getAttribute("KAPTCHA_SESSION_KEY");
+        if (verifyCode != null && verifyCode.equals(captcha)){
+            User user = new User(uname, pwd, email, 0);
+            userService.addUser(user);
+            return "user/login";
+
+        }
+
+        return "user/register";
+    }
+
 }

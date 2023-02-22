@@ -12,4 +12,9 @@ public class UserServiceImpl implements UserService {
     public User getUser(String login, String pwd) {
         return userDAO.getUser(login,pwd);
     }
+
+    @Override
+    public void addUser(User user) {
+        userDAO.addUser(user);
+    }
 }

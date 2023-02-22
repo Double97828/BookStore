@@ -197,7 +197,6 @@
   display: flex;
   padding-top: 25px;
   justify-content: center;
-  cursor: pointer;
 }
 .bottom .content dl {
   width: 180px;
@@ -210,6 +209,13 @@
   font-size: 14px;
   color: #a8a8a8;
 }
+
+.bottom .content dl a{
+  margin-top: 20px;
+  font-size: 20px;
+  color: white;
+}
+
 .bottom .down {
   height: 40px;
   background-color: #2a2a2a;

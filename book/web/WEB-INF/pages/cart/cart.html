@@ -14,7 +14,7 @@
       <div class="w">
         <div class="header-left">
           <a th:href="@{/WEB-INF/pages/index.html}">
-            <img th:src="@{/img/logo.jpg}" alt=""
+            <img th:src="@{/static/img/logo.jpg}" alt=""
           /></a>
           <h1>Your Cart</h1>
         </div>
@@ -61,8 +61,8 @@
         </table>
         <div class="footer">
           <div class="footer-left">
-            <a href="#" class="clear-cart">清空购物车</a>
-            <a href="#">继续购物</a>
+            <a href="#" class="clear-cart">Clear Cart</a>
+            <a href="#">Continue to Shop</a>
           </div>
           <div class="footer-right">
             <div>total<span th:text="${session.user.getCart().getTotalItem()}"></span> items</div>
@@ -74,45 +74,16 @@
     </div>
     <div class="bottom">
       <div class="w">
-        <div class="top">
-          <ul>
-            <li>
-              <a href="">
-                <img src="../../static/img/bottom1.png" alt="" />
-                <span>大咖级讲师亲自授课</span>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src="../../static/img/bottom.png" alt="" />
-                <span>课程为学员成长持续赋能</span>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src="../../static/img/bottom2.png" alt="" />
-                <span>学员真是情况大公开</span>
-              </a>
-            </li>
-          </ul>
-        </div>
         <div class="content">
-          <dl>
-            <dt>关于尚硅谷</dt>
-            <dd>教育理念</dd>
+          <dl >
+            <dt>
+              <a href="https://www.linkedin.com/in/beiyi-zhang-933a45252/" target="_blank">About Double</a>
+            </dt>
           </dl>
           <dl>
-            <dt>资源下载</dt>
-            <dd>视频下载</dd>
-          </dl>
-          <dl>
-            <dt>加入我们</dt>
-            <dd>招聘岗位</dd>
-          </dl>
-          <dl>
-            <dt>contact me</dt>
-            <dd>https://github.com/Double97828</dd>
-            <dd></dd>
+            <dt >
+              <a href="https://github.com/Double97828" target="_blank">Contact Me</a>
+            </dt>
           </dl>
         </div>
       </div>

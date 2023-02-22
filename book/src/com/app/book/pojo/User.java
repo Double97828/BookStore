@@ -29,6 +29,12 @@ public class User {
         this.uname = uname;
     }
 
+    public User(String uname, String pwd, String email, Integer role) {
+        this.uname = uname;
+        this.pwd = pwd;
+        this.email = email;
+        this.role = role;
+    }
 
     public void setUname(String uname) {
         this.uname = uname;

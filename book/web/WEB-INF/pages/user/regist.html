@@ -23,44 +23,44 @@
       <div class="register_form">
         <h1>Create an Account</h1>
         <form th:action="@{/user.do}" method="post">
-          <input type="hidden" name="operate" value="createUser">
+          <input type="hidden" name="operate" value="register">
           <div class="form-item">
             <div>
               <label>user name:</label>
-              <input type="text" placeholder="please enter the user name" />
+              <input type="text" placeholder="please enter the user name" name="uname" />
             </div>
-            <span class="errMess">用户名应为6~16位数组和字母组成</span>
+            <span class="errMess">username should contain 6~16 digits or characters</span>
           </div>
           <div class="form-item">
             <div>
               <label>password:</label>
-              <input type="password" placeholder="please enter the password" />
+              <input type="password" placeholder="please enter password" name="pwd"/>
             </div>
-            <span class="errMess">密码的长度至少为8位</span>
+            <span class="errMess">password must be at least 8 characters long</span>
           </div>
           <div class="form-item">
             <div>
               <label>repeat password:</label>
-              <input type="password" placeholder="please repeat the password" />
+              <input type="password" placeholder="please confirm password" />
             </div>
-            <span class="errMess">密码两次输入不一致</span>
+            <span class="errMess">the password and confirm password do not math</span>
           </div>
           <div class="form-item">
             <div>
               <label>email:</label>
-              <input type="text" placeholder="please enter the email" />
+              <input type="text" placeholder="please enter the email" name="email"/>
             </div>
-            <span class="errMess">请输入正确的邮箱格式</span>
+            <span class="errMess">please enter a valid email</span>
           </div>
           <div class="form-item">
             <div>
-              <label>验证码:</label>
+              <label>captcha:</label>
               <div class="verify">
-                <input type="text" placeholder="" />
-                <img th:src="@{/kaptcha}">
+                <input type="text" placeholder="" name="captcha"/>
+                <img th:src="@{/kaptcha}" >
               </div>
             </div>
-            <span class="errMess">请输入正确的验证码</span>
+            <span class="errMess">captcha is not correct</span>
           </div>
           <button class="btn">register</button>
         </form>
